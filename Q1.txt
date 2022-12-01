@@ -1,4 +1,64 @@
-Commit 1
-Commit 2
-Commit 3
-B2 commit 4
+1- No ramo principal faça no mínimo 3 commits, em seguida utilize o git reset –hard de 2 commits anteriores (HEAD~2) e use o reflog para recuperar os dados perdidos.
+Criar o repositorio	
+git init
+git remote add origin + link do repositorio
+//crie um arquivo 
+git add .
+git commit -m "Primeiro commit"
+git push origin Master
+git git add .
+git commit -m "Segundo commit"
+git push
+git add .
+git commit -m "Terceiro commit"
+git push 
+// resetando os commits 
+git log --oneline
+git reset codCommit --hard
+git push --force
+git reflog
+//para voltar 
+git reset + codCommit --hard
+git push --force
+-------------------
+3- Crie uma branch e faça no mínimo 2 commits nela, em seguida retorne para o ramo principal e exclua a branch criada e use o reflog para recriá-la.
+criar repositorio igual ao exercicio 1 
+git branch NomeDaBranch
+git checkout NomeDaBranch
+git add . 
+git commit -m "Commit"
+git push origin NomeDaBranch
+git checkout Master
+//Deletar a Branch 
+git branch -D NomeDaBranch
+git push origin Master
+git push origin NomeDaBranch --delete
+git reflog
+git checkout -b NomeDaBranch codigodaBranch
+git push origin NomeDaBranch
+-------------------
+4- Crie uma branch e faça um commit criando um arquivo, em seguida retorne para o ramo principal e faça o cherry-pick desse commit.
+criando repositorio e branch igual ao exercicio 3
+git push origin master
+git branch exec4
+git checkout exec4
+git add .
+git commit -m "commit branch"
+git push origin exec4
+git checkout master
+git cherry-pick cea7994
+git push origin master
+-------------------
+5- Crie uma tag no ramo principal com qualquer nome/mensagem.
+git tag -a nomeTag -m "mensagemTag" 
+git push origin --tag nomeTag
+-------------------
+6- Simule em um projeto a utilização do gitflow. OBS (usar —no-ff no comando git merge)
+Prepare as branches (master, develop);
+Inicie uma feature e finalize com um merge na develop;
+Simule a situação de um release, criando a branch release/v1.0;
+Adicione na branch de release algum arquivo que possua a versão 1.0
+Finalize a branch release com um merge na master
+Crie a tag v1.0 na master
+Agora faça um hotfix da versão v1.0 para v1.1
+Após o merge da hotfix, crie a tag v1.1
